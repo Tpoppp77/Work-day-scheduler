@@ -10,22 +10,28 @@ $(document).ready(function () {
   
   let userInput = $("#formGroupExampleInput").val();
   // for loop 
-  for (i = 0; i < hours.length; i++) {
+  
+    for (i = 0; i < hours.length; i++) {
 
-    let blocktime = $(".row" + hours[i]);
-
-    if (currentTime == hours[i]) {
-      console.log(i);
-      $(".row" + hours[i]).addClass("greybackground");
-    } else if (currentTime > hours[i]) {
-      $(".row" + hours[i]).addClass("redbackground");
-    } else if (currentTime < hours[i]) {
-      $(".row" + hours[i]).addClass("greenbackground");
+      let blockTime = document.querySelector(".row");
+      blockTime.style.display = "";
+      
+      if (currentTime == blockTime) {
+     
+        $(".row" + blockTime).style.color = "red";
+      } else if 
+      (currentTime > blockTime) {
+        $(".row" + blockTime).style.color = "grey";
+      } else if 
+      (currentTime < blockTime) {
+        $(".row" + blockTime).style.color = "green";
+      }
     }
-  }
+  
+  
   // append to timeblock
 
-   $(".formGroupExampleInput").append(userInput);
+   $(".saveBtn").append(userInput);
 
 
 
@@ -38,9 +44,8 @@ $(document).ready(function () {
       currentTime: currentTime,
     }
     //local storage
-  let userInput = localStorage.setItem("#formGroupExampleInput", userInput);
+  let userInput = localStorage.setItem(".saveBtn", userInput);
 
-    
     // $("#formGroupExampleInput").val();
     // $("#formGroupExampleInput").append(userInput);
   });
