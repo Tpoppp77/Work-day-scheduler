@@ -1,37 +1,40 @@
 $(document).ready(function () {
   // relative time 
   let today = $("#currentDay");
-  today.text(moment().format("MMMM Do YYYY, h:mm:ss a"))
+  today.text(moment().format("MMMM Do YYYY, h:mm:ss a"));
+  console.log(today);
 
   let currentTime = moment();
-  
+
   // timeblocks 
   let hours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
-  
+
   let userInput = $("#formGroupExampleInput").val();
-  // for loop 
-  
-    for (i = 0; i < hours.length; i++) {
+  console.log(userInput)
+  //userInput.text("")
 
-      let blockTime = document.querySelector(".row");
-      blockTime.style.display = "";
-      
-      if (currentTime == blockTime) {
-     
-        $(".row" + blockTime).style.color = "red";
-      } else if 
-      (currentTime > blockTime) {
-        $(".row" + blockTime).style.color = "grey";
-      } else if 
-      (currentTime < blockTime) {
-        $(".row" + blockTime).style.color = "green";
-      }
-    }
-  
-  
   // append to timeblock
+  $(".saveBtn").append(userInput);
 
-   $(".saveBtn").append(userInput);
+  // for loop 
+
+  for (i = 0; i < hours.length; i++) {
+
+    let blockTime = document.querySelector(".row");
+    console.log(blockTime);
+
+    if (blockTime == currentTime) {
+      $(".row" + blockTime).style.color = "red";
+    } else if
+     (blockTime > currentTime) {
+      $(".row" + blockTime).style.color = "grey";
+    } else if
+     (blockTime < currentTime) {
+      $(".row" + blockTime).style.color = "green";
+    }
+  }
+
+
 
 
 
@@ -41,10 +44,16 @@ $(document).ready(function () {
     let saveBtn = "savebtn";
     let all = {
       saveBtn: saveBtn,
-      currentTime: currentTime,
+      Time: currentTime,
+
     }
     //local storage
-  let userInput = localStorage.setItem(".saveBtn", userInput);
+   localStorage.setItem(".user", user);
+
+   
+
+
+
 
     // $("#formGroupExampleInput").val();
     // $("#formGroupExampleInput").append(userInput);
